@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta -->
+
+  <!-- Links -->
+    <!-- Custom CSS -->
+    <link rel='stylesheet' href="./View/Public/CSS/custom-styles.css">
+
+    <!-- Bootstrap v5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+
+    <!-- AOS (Animate Text) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Links -->
+
+  <!-- Scripts -->
+    <!-- Bootstrap v5 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    
+    <!-- AOS (Animate Text) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/a2caf9c750.js" crossorigin="anonymous"></script>
+  <!-- Scripts -->
+
+  <!-- Internal Styles -->
+    <style>
+      *{
+        font-family: 'IBM Plex Serif', serif;
+      }
+      .poiret-one{
+        font-family: 'Poiret One', cursive;
+      }
+    </style>
+  <!-- Internal Styles -->
+  <title>Zips Coffee</title>
+</head>
+<body>
+  <div class='page-grid'>
+    <!-- Navbar -->
+      <nav class='navbar-grid' data-aos="fade-down">
+        <!-- Left -->
+          <div class='navbar-left-container'>
+            <h1 class='poiret-one' style='font-size: 54px; font-weight: bold; color: #A89968;'>Zips Coffee</h1>
+          </div>
+        <!-- Left -->
+      </nav>
+    <!-- Navbar -->
+
+    <!-- Body -->
+      <div class='services-page-grid'>
+        <!-- Coffee Shop Form -->
+          <div class='services-header-grid'>
+            <form class='coffee-form'>
+              <h2>Order Your Coffee</h2>
+              <table style="width:100%">
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th> 
+                  <th>Age</th>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>Smith</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>Eve</td>
+                  <td>Jackson</td>
+                  <td>94</td>
+                </tr>
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>80</td>
+                </tr>
+              </table>
+
+            </form>
+          </div>
+        <!-- Coffee Shop Form -->
+      </div>
+    <!-- Body -->
+
+  </div>
+  
+<script>
+  // AOS (Animate Text)
+    AOS.init({
+      duration: 1200,
+    })
+  // AOS (Animate Text) 
+
+  // Navbar Color Scroll
+    $(window).scroll(function(){
+      $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+    });
+  // Navbar Color Scroll
+</script>
+
+</body>
+</html>
