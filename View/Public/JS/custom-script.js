@@ -1,58 +1,61 @@
 // Global Variables
   var totalPrice = 0;
-  var espressoPrice = 2.5;
-  var coldbrewPrice = 3.5;
-  var lattePrice = 4.5;
+  var espressoTotal = 0;
+  var coldbrewTotal = 0;
+  var latteTotal = 0;
 // Global Variables
 
 $(document).ready(function(){
-  // Form
-    // Submission
-      $("form").submit(function(){
-        if(totalPrice == '0'){
-          alert("Your order total must be greater than $0.00");
-        } else {
-          alert("Submitted");
-        }
-      });
-    // Submission
-
-    // Reset
-      function resetForm(){
-        form-zips-coffee
+  // Form Submission
+    $("form").submit(function(){
+      if(totalPrice == '0'){
+        alert("Your order total must be greater than $0.00");
+      } else {
+        alert("Submitted");
       }
-    // Reset
-  // Form
+    });
+  // Form Submission
 
   // Form Update
-    // Espresso
-    $(document).on("change keyup blur", "#form-espresso-qty", function() {
-      var espressoQty = $('#form-espresso-qty').val();
-      getCalcDisplay(espressoQty, espressoPrice);
-    });
+    // Espresso Qty
+      $(document).on("change keyup blur", "#form-espresso-qty", function(){
+        var espressoQty = $('#form-espresso-qty').val();
+        var espressoPrice = 2.99;
+        espressoTotal = getCalc(espressoQty, espressoPrice);
+        getDisplay();
+      });
+    // Espresso Qty
 
-    // Coldbrew
-    $(document).on("change keyup blur", "#form-coldbrew-qty", function() {
-      var coldbrewQty = $('#form-coldbrew-qty').val();
-      getCalcDisplay(coldbrewQty, coldbrewPrice);
-    });
+    // Coldbrew Qty
+      $(document).on("change keyup blur", "#form-coldbrew-qty", function(){
+        var coldbrewQty = $('#form-coldbrew-qty').val();
+        var coldbrewPrice = 3.99;
+        coldbrewTotal = getCalc(coldbrewQty, coldbrewPrice);
+        getDisplay();
+      });
+    // Coldbrew Qty
 
-    // Latte
-    $(document).on("change keyup blur", "#form-latte-qty", function() {
-      var latteQty = $('#form-latte-qty').val();
-      getCalcDisplay(latteQty, lattePrice);
-    });
+    // Latte Qty
+      $(document).on("change keyup blur", "#form-latte-qty", function(){
+        var latteQty = $('#form-latte-qty').val();
+        var lattePrice = 4.99;
+        latteTotal = getCalc(latteQty, lattePrice);
+        getDisplay();
+      });
+    // Latte Qty
 
-    // Calc & Display
-      function getCalcDisplay(qty, price){
-        if(qty == 0){
-          totalPrice = totalPrice - price;
-        } else {
-          totalPrice = totalPrice + price;
-        }
-        
+    // Calc Price
+      function getCalc(qty, price){
+          calcPrice = qty * price;
+          return calcPrice;
+      }
+    // Calc Price
+
+    // Display
+      function getDisplay(){
+        totalPrice = espressoTotal + coldbrewTotal + latteTotal;
         $('#form-total-price').val("$" + totalPrice.toFixed(2));
       }
-    // Calc & Display
+    // Display
   // Form Update
 });
