@@ -9,6 +9,10 @@ body {
   min-height: 100vh;
 }
 
+li > img {
+  width: 100px;
+}
+
 .page-grid {
   display: -ms-grid;
   display: grid;
@@ -114,5 +118,38 @@ body {
   border-radius: 4px;
   padding: 3%;
   margin: auto;
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+li:hover .image-description {
+  left: 35px;
+  top: -150px;
+}
+
+.image-description {
+  position: absolute;
+  left: -9999px;
+}
+
+.image-description > img {
+  width: 450px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  -webkit-box-shadow: 7px 5px 8px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: 7px 5px 8px 0px rgba(0, 0, 0, 0.44);
 }
 /*# sourceMappingURL=custom-styles.css.map */

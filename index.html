@@ -42,6 +42,12 @@
     </style>
   <!-- Internal Styles -->
 
+  <!-- Preload Images -->
+    <link rel="preload" as="image" href="./View/Public/Images/espresso-desc.png">
+    <link rel="preload" as="image" href="./View/Public/Images/coldbrew-desc.png">
+    <link rel="preload" as="image" href="./View/Public/Images/latte-desc.png">
+  <!-- Preload Images -->
+
   <title>Zips Coffee</title>
 </head>
 
@@ -63,12 +69,13 @@
 
             <!-- Coffee Form -->
               <form class='coffee-form' action="" onreset="resetFormVar()" data-aos="fade-left">
-                <h2 style='font-weight: bold;'>Our Coffee Menu</h2>
+                <h2 style='font-weight: bold; text-align: center;'>Our Coffee Menu</h2>
                 <hr>
 
-                <table style="width:100%">
+                <table style="width:100%; border-spacing: 18px; border-collapse: unset !important;">
                   <!-- Column headers -->
                     <tr>
+                      <th></th>
                       <th>Coffee Type:</th>
                       <th>Price:</th>
                       <th>Quantity:</th>
@@ -77,6 +84,17 @@
 
                   <!-- Row 1 (Espresso) -->
                     <tr>
+                      <td>
+                        <ul>
+                          <li>
+                            <img src='./View/Public/Images/espresso-image.png' onClick='addEspresso()'>
+                            
+                            <span class="image-description">
+                              <img src="./View/Public/Images/espresso-desc.png">
+                            </span>
+                          </li>
+                        </ul>
+                      </td>
                       <td>Espresso</td>
                       <td>$2.99</td>
                       <td>
@@ -87,6 +105,17 @@
                   
                   <!-- Row 2 (Cold Brew) -->
                     <tr>
+                      <td>
+                        <ul>
+                          <li>
+                            <img src='./View/Public/Images/coldbrew-image.png' onClick='addColdbrew()'>
+                            
+                            <span class="image-description">
+                              <img src="./View/Public/Images/coldbrew-desc.png">
+                            </span>
+                          </li>
+                        </ul>
+                      </td>
                       <td>Cold Brew</td>
                       <td>$3.99</td>
                       <td>
@@ -97,6 +126,17 @@
 
                   <!-- Row 3 (Latte) -->
                     <tr>
+                      <td>
+                        <ul>
+                          <li>
+                            <img src='./View/Public/Images/latte-image.png' onClick='addLatte()'>
+                            
+                            <span class="image-description">
+                              <img src="./View/Public/Images/latte-desc.png">
+                            </span>
+                          </li>
+                        </ul>
+                      </td>
                       <td>Latte</td>
                       <td>$4.99</td>
                       <td>
@@ -108,6 +148,7 @@
                   <!-- Row 4 (total) -->
                     <tr>
                       <td></td>
+                      <td></td>
                       <td><strong style='font-size: 18px;'>Total:</strong></td>
                       <td>
                         <input id='form-total-price' class='form-control' style='width: 100px;' type="text" placeholder="$0.00" disabled>
@@ -117,8 +158,8 @@
                 </table>
 
                 <hr>
-                <button class="btn btn-outline-danger" type="reset">Clear Order</button>
-                <button style='float: right; width: 50%;' class="btn btn-outline-success" type="submit">Place Order</button>
+                <button style='color: white; font-weight: bold;' class="btn btn-outline-danger" type="reset">Clear Order</button>
+                <button style='color: white; font-weight: bold; float: right; width: 70%;' class="btn btn-outline-success" type="submit">Place Order</button>
               </form>
             <!-- Coffee Form -->
 
@@ -130,10 +171,52 @@
   
 <script>
   // AOS (Animate Text)
-    AOS.init({duration: 1200,})
+  AOS.init({duration: 1200,})
 
   // Reset totalPrice on reset
   function resetFormVar(){totalPrice = 0;}
+
+  // Add Espresso
+    function addEspresso(){
+      var value = parseInt(document.getElementById('form-espresso-qty').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      document.getElementById('form-espresso-qty').value = value;
+      getDisplayCalc()
+    }
+  // Add Espresso
+  
+  // Add Coldbrew
+    function addColdbrew(){
+      var value = parseInt(document.getElementById('form-coldbrew-qty').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      document.getElementById('form-coldbrew-qty').value = value;
+      getDisplayCalc()
+    }
+  // Add Coldbrew
+
+  // Add Latte
+    function addLatte(){
+      var value = parseInt(document.getElementById('form-latte-qty').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      document.getElementById('form-latte-qty').value = value;
+      getDisplayCalc()
+    }
+  // Add Latte
+
+  // Display Calc
+    function getDisplayCalc(){
+      var espressoQty = $('#form-espresso-qty').val();
+      var coldbrewQty = $('#form-coldbrew-qty').val();
+      var latteQty = $('#form-latte-qty').val();
+
+      totalPrice = (espressoQty * espressoPrice)+(coldbrewQty * coldbrewPrice)+(latteQty * lattePrice);
+
+      $('#form-total-price').val("$" + totalPrice.toFixed(2));
+    }
+  // Display Calc
 </script>
 
 </body>
