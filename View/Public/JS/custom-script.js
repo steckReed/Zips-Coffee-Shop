@@ -7,9 +7,10 @@
 
 $(document).ready(function(){
   // Form Submission
-    $("form").submit(function(){
+    $("form").submit(function(event){
       if(totalPrice == '0'){
         alert("Your order total must be greater than $0.00");
+        event.preventDefault()
       } else {
         alert("Submitted");
       }
